@@ -77,7 +77,7 @@ export default function Footer() {
           <p className="text-primary/70 text-xs">
             ساخته شده با ❤️ توسط{' '}
             <a href="https://github.com/M-Bazrafshan-viweb" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-medium">
-              M-Bazrafshan
+              مهشید بذرافشان
             </a>
           </p>
         </div>

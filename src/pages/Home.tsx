@@ -21,7 +21,7 @@ export default function Home() {
         <div className="inline-flex items-center gap-2 px-4 py-2 bg-white dark:bg-gray-800 rounded-full border border-gray-200 dark:border-gray-700 text-sm text-gray-500 dark:text-gray-400">
           <span>ساخته شده توسط</span>
           <a href="https://github.com/M-Bazrafshan-viweb" target="_blank" rel="noopener noreferrer" className="text-primary font-bold hover:underline">
-            Mahshid Bazrafshan
+            مهشید بذرافشان
           </a>
           <span>✦</span>
         </div>
