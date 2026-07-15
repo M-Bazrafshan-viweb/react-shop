@@ -54,14 +54,14 @@ export default function Navbar() {
               {searchOpen && (
                 <motion.div
                   initial={{ width: 0, opacity: 0 }}
-                  animate={{ width: 200, opacity: 1 }}
+                  animate={{ width: 'auto', opacity: 1 }}
                   exit={{ width: 0, opacity: 0 }}
                   className="overflow-hidden"
                 >
                   <input
                     type="text"
                     placeholder="جستجو..."
-                    className="w-full px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-primary"
+                    className="w-32 sm:w-48 px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-primary"
                     autoFocus
                   />
                 </motion.div>

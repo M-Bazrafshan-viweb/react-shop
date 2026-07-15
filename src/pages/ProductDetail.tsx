@@ -84,11 +84,11 @@ export default function ProductDetail() {
           </div>
 
           {/* Price */}
-          <div className="flex items-center gap-4">
-            <span className="text-3xl font-bold text-primary">{formatPrice(product.price)}</span>
+          <div className="flex flex-wrap items-center gap-3 sm:gap-4">
+            <span className="text-2xl sm:text-3xl font-bold text-primary">{formatPrice(product.price)}</span>
             {product.originalPrice && (
               <>
-                <span className="text-lg text-gray-400 line-through">{formatPrice(product.originalPrice)}</span>
+                <span className="text-base sm:text-lg text-gray-400 line-through">{formatPrice(product.originalPrice)}</span>
                 <span className="px-3 py-1 bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-400 rounded-full text-sm font-bold">
                   {discount}% تخفیف
                 </span>
@@ -101,13 +101,13 @@ export default function ProductDetail() {
           {/* Colors */}
           {product.colors.length > 0 && (
             <div>
-              <h3 className="font-bold mb-3">رنگ: {product.colors[selectedColor]}</h3>
-              <div className="flex gap-2">
+              <h3 className="font-bold mb-2 sm:mb-3 text-sm sm:text-base">رنگ: {product.colors[selectedColor]}</h3>
+              <div className="flex flex-wrap gap-2">
                 {product.colors.map((color, index) => (
                   <button
                     key={color}
                     onClick={() => setSelectedColor(index)}
-                    className={`px-4 py-2 rounded-lg border-2 transition-all ${
+                    className={`px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg border-2 text-xs sm:text-sm transition-all ${
                       selectedColor === index
                         ? 'border-primary bg-primary/10 text-primary'
                         : 'border-gray-200 dark:border-gray-700 hover:border-gray-300'
@@ -123,13 +123,13 @@ export default function ProductDetail() {
           {/* Sizes */}
           {product.sizes.length > 0 && product.sizes[0] !== 'تک سایز' && (
             <div>
-              <h3 className="font-bold mb-3">سایز: {product.sizes[selectedSize]}</h3>
-              <div className="flex gap-2">
+              <h3 className="font-bold mb-2 sm:mb-3 text-sm sm:text-base">سایز: {product.sizes[selectedSize]}</h3>
+              <div className="flex flex-wrap gap-2">
                 {product.sizes.map((size, index) => (
                   <button
                     key={size}
                     onClick={() => setSelectedSize(index)}
-                    className={`w-12 h-12 rounded-lg border-2 transition-all font-medium ${
+                    className={`w-10 h-10 sm:w-12 sm:h-12 rounded-lg border-2 text-xs sm:text-sm transition-all font-medium ${
                       selectedSize === index
                         ? 'border-primary bg-primary text-white'
                         : 'border-gray-200 dark:border-gray-700 hover:border-gray-300'
@@ -144,72 +144,72 @@ export default function ProductDetail() {
 
           {/* Quantity */}
           <div>
-            <h3 className="font-bold mb-3">تعداد</h3>
-            <div className="flex items-center gap-4">
+            <h3 className="font-bold mb-2 sm:mb-3 text-sm sm:text-base">تعداد</h3>
+            <div className="flex items-center gap-3 sm:gap-4">
               <div className="flex items-center border border-gray-200 dark:border-gray-700 rounded-lg">
                 <button
                   onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                  className="px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-r-lg"
+                  className="px-3 py-1.5 sm:px-4 sm:py-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-r-lg text-sm sm:text-base"
                 >
                   -
                 </button>
-                <span className="px-4 py-2 font-medium min-w-[50px] text-center">{quantity}</span>
+                <span className="px-3 py-1.5 sm:px-4 sm:py-2 font-medium min-w-[40px] sm:min-w-[50px] text-center text-sm sm:text-base">{quantity}</span>
                 <button
                   onClick={() => setQuantity(quantity + 1)}
-                  className="px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-l-lg"
+                  className="px-3 py-1.5 sm:px-4 sm:py-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-l-lg text-sm sm:text-base"
                 >
                   +
                 </button>
               </div>
-              <span className="text-gray-500 text-sm">
+              <span className="text-gray-500 text-xs sm:text-sm">
                 {formatPrice(product.price * quantity)}
               </span>
             </div>
           </div>
 
           {/* Actions */}
-          <div className="flex gap-3">
+          <div className="flex gap-2 sm:gap-3">
             <motion.button
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               onClick={handleAddToCart}
-              className="flex-1 flex items-center justify-center gap-2 bg-gradient-to-r from-primary to-accent text-white py-4 rounded-xl font-bold text-lg hover:shadow-lg transition-shadow"
+              className="flex-1 flex items-center justify-center gap-2 bg-gradient-to-r from-primary to-accent text-white py-3 sm:py-4 rounded-xl font-bold text-sm sm:text-lg hover:shadow-lg transition-shadow"
             >
-              <ShoppingCart size={20} />
+              <ShoppingCart size={18} className="sm:w-5 sm:h-5" />
               افزودن به سبد خرید
             </motion.button>
             <motion.button
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
-              className="p-4 rounded-xl border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800"
+              className="p-3 sm:p-4 rounded-xl border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800"
             >
-              <Heart size={20} />
+              <Heart size={18} className="sm:w-5 sm:h-5" />
             </motion.button>
             <motion.button
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
-              className="p-4 rounded-xl border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800"
+              className="p-3 sm:p-4 rounded-xl border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800"
             >
-              <Share2 size={20} />
+              <Share2 size={18} className="sm:w-5 sm:h-5" />
             </motion.button>
           </div>
 
           {/* Features */}
-          <div className="grid grid-cols-2 gap-4 pt-4 border-t border-gray-200 dark:border-gray-700">
-            <div className="flex items-center gap-2 text-sm">
-              <Truck size={18} className="text-primary" />
+          <div className="grid grid-cols-2 gap-3 sm:gap-4 pt-4 border-t border-gray-200 dark:border-gray-700">
+            <div className="flex items-center gap-2 text-xs sm:text-sm">
+              <Truck size={16} className="text-primary" />
               <span>ارسال رایگان</span>
             </div>
-            <div className="flex items-center gap-2 text-sm">
-              <Shield size={18} className="text-primary" />
+            <div className="flex items-center gap-2 text-xs sm:text-sm">
+              <Shield size={16} className="text-primary" />
               <span>گارانتی اصالت</span>
             </div>
-            <div className="flex items-center gap-2 text-sm">
-              <Check size={18} className="text-primary" />
+            <div className="flex items-center gap-2 text-xs sm:text-sm">
+              <Check size={16} className="text-primary" />
               <span>امکان پرداخت درب منزل</span>
             </div>
-            <div className="flex items-center gap-2 text-sm">
-              <Check size={18} className="text-primary" />
+            <div className="flex items-center gap-2 text-xs sm:text-sm">
+              <Check size={16} className="text-primary" />
               <span>امکان مرجوعی</span>
             </div>
           </div>

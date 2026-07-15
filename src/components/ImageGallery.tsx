@@ -37,7 +37,7 @@ export default function ImageGallery({ images, productName }: ImageGalleryProps)
         </AnimatePresence>
 
         {/* Zoom Icon */}
-        <div className="absolute top-4 right-4 p-2 bg-white/80 dark:bg-gray-800/80 rounded-full opacity-0 group-hover:opacity-100 transition-opacity">
+        <div className="absolute top-4 right-4 p-2 bg-white/80 dark:bg-gray-800/80 rounded-full sm:opacity-0 sm:group-hover:opacity-100 transition-opacity">
           <ZoomIn className="w-5 h-5 text-gray-600 dark:text-gray-300" />
         </div>
 
@@ -46,13 +46,13 @@ export default function ImageGallery({ images, productName }: ImageGalleryProps)
           <>
             <button
               onClick={(e) => { e.stopPropagation(); prevImage(); }}
-              className="absolute left-3 top-1/2 -translate-y-1/2 p-2 bg-white/80 dark:bg-gray-800/80 rounded-full opacity-0 group-hover:opacity-100 transition-opacity hover:bg-white dark:hover:bg-gray-700"
+              className="absolute left-3 top-1/2 -translate-y-1/2 p-2 bg-white/80 dark:bg-gray-800/80 rounded-full sm:opacity-0 sm:group-hover:opacity-100 transition-opacity hover:bg-white dark:hover:bg-gray-700"
             >
               <ChevronLeft className="w-5 h-5 text-gray-700 dark:text-gray-300" />
             </button>
             <button
               onClick={(e) => { e.stopPropagation(); nextImage(); }}
-              className="absolute right-3 top-1/2 -translate-y-1/2 p-2 bg-white/80 dark:bg-gray-800/80 rounded-full opacity-0 group-hover:opacity-100 transition-opacity hover:bg-white dark:hover:bg-gray-700"
+              className="absolute right-3 top-1/2 -translate-y-1/2 p-2 bg-white/80 dark:bg-gray-800/80 rounded-full sm:opacity-0 sm:group-hover:opacity-100 transition-opacity hover:bg-white dark:hover:bg-gray-700"
             >
               <ChevronRight className="w-5 h-5 text-gray-700 dark:text-gray-300" />
             </button>
