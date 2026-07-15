@@ -34,7 +34,7 @@ export default function App() {
   }, [theme, setTheme]);
 
   return (
-    <div className="min-h-screen bg-rose-light dark:bg-rose-dark text-gray-800 dark:text-gray-200 transition-colors duration-300">
+    <div className="min-h-screen bg-rose-light dark:bg-rose-dark text-gray-800 dark:text-gray-200 transition-colors duration-300 overflow-x-hidden">
       <Toaster
         position="top-right"
         toastOptions={{
@@ -49,16 +49,18 @@ export default function App() {
       <Navbar />
       <CartDrawer />
       <ScrollToTop />
-      <main>
-        <AnimatePresence mode="wait">
-          <Routes location={location} key={location.pathname}>
-            <Route path="/" element={<Home />} />
-            <Route path="/products" element={<Products />} />
-            <Route path="/product/:id" element={<ProductDetail />} />
-            <Route path="/cart" element={<Cart />} />
-            <Route path="/checkout" element={<Checkout />} />
-          </Routes>
-        </AnimatePresence>
+      <main className="px-3 sm:px-4 md:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div className="py-4 sm:py-6 md:py-8">
+          <AnimatePresence mode="wait">
+            <Routes location={location} key={location.pathname}>
+              <Route path="/" element={<Home />} />
+              <Route path="/products" element={<Products />} />
+              <Route path="/product/:id" element={<ProductDetail />} />
+              <Route path="/cart" element={<Cart />} />
+              <Route path="/checkout" element={<Checkout />} />
+            </Routes>
+          </AnimatePresence>
+        </div>
       </main>
       <Footer />
     </div>
