@@ -55,6 +55,10 @@ export default {
             dark: '#1e293b',
           },
         },
+        rose: {
+          light: '#fef2f2',
+          dark: '#1c1017',
+        },
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],

@@ -19,18 +19,18 @@ export default function Navbar() {
 
   return (
     <nav className="sticky top-0 z-50 backdrop-blur-lg bg-white/80 dark:bg-gray-900/80 border-b border-gray-200 dark:border-gray-800">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+      <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-6">
+        <div className="flex items-center justify-between h-14 sm:h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center">
-              <span className="text-white font-bold text-xl">م</span>
+          <Link to="/" className="flex items-center gap-1.5 sm:gap-2">
+            <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center">
+              <span className="text-white font-bold text-lg sm:text-xl">م</span>
             </div>
-            <span className="text-xl font-bold text-gradient hidden sm:block">فروشگاه مُد</span>
+            <span className="text-lg sm:text-xl font-bold text-gradient hidden sm:block">فروشگاه مُد</span>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-6 lg:gap-8">
             {navLinks.map((link) => (
               <Link
                 key={link.path}
@@ -48,7 +48,7 @@ export default function Navbar() {
           </div>
 
           {/* Right Actions */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-1.5 sm:gap-2 md:gap-3">
             {/* Search */}
             <AnimatePresence>
               {searchOpen && (
@@ -61,7 +61,7 @@ export default function Navbar() {
                   <input
                     type="text"
                     placeholder="جستجو..."
-                    className="w-32 sm:w-48 px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-primary"
+                    className="w-28 sm:w-40 md:w-48 px-2 sm:px-3 py-1.5 sm:py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-primary"
                     autoFocus
                   />
                 </motion.div>
@@ -71,7 +71,7 @@ export default function Navbar() {
               onClick={() => setSearchOpen(!searchOpen)}
               className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-600 dark:text-gray-300"
             >
-              <Search size={20} />
+              <Search size={18} className="sm:w-5 sm:h-5" />
             </button>
 
             {/* Theme Toggle */}
@@ -79,7 +79,7 @@ export default function Navbar() {
               onClick={toggleTheme}
               className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-600 dark:text-gray-300"
             >
-              {isDark ? <Sun size={20} /> : <Moon size={20} />}
+              {isDark ? <Sun size={18} className="sm:w-5 sm:h-5" /> : <Moon size={18} className="sm:w-5 sm:h-5" />}
             </button>
 
             {/* Cart */}
@@ -87,12 +87,12 @@ export default function Navbar() {
               to="/cart"
               className="relative p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-600 dark:text-gray-300"
             >
-              <ShoppingCart size={20} />
+              <ShoppingCart size={18} className="sm:w-5 sm:h-5" />
               {totalItems > 0 && (
                 <motion.span
                   initial={{ scale: 0 }}
                   animate={{ scale: 1 }}
-                  className="absolute -top-1 -right-1 w-5 h-5 bg-primary text-white text-xs rounded-full flex items-center justify-center font-bold"
+                  className="absolute -top-0.5 -right-0.5 sm:-top-1 sm:-right-1 w-4 h-4 sm:w-5 sm:h-5 bg-primary text-white text-[9px] sm:text-xs rounded-full flex items-center justify-center font-bold"
                 >
                   {totalItems}
                 </motion.span>
@@ -101,7 +101,7 @@ export default function Navbar() {
 
             {/* User */}
             <button className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-600 dark:text-gray-300 hidden sm:block">
-              <User size={20} />
+              <User size={18} className="sm:w-5 sm:h-5" />
             </button>
 
             {/* Mobile Menu Button */}
@@ -122,22 +122,22 @@ export default function Navbar() {
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            className="md:hidden overflow-hidden border-t border-gray-200 dark:border-gray-800"
+            className="md:hidden overflow-hidden border-t border-gray-200 dark:border-gray-800 bg-white/95 dark:bg-gray-900/95 backdrop-blur-lg"
           >
-            <div className="px-4 py-3 space-y-2">
+            <div className="px-4 py-3 space-y-1.5">
               {navLinks.map((link) => (
                 <Link
                   key={link.path}
                   to={link.path}
                   onClick={() => setMobileMenuOpen(false)}
-                  className={`flex items-center gap-2 px-3 py-2 rounded-lg transition-all ${
+                  className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-all text-sm ${
                     location.pathname === link.path
                       ? 'bg-primary text-white'
                       : 'text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'
                   }`}
                 >
-                  <link.icon size={18} />
-                  <span>{link.label}</span>
+                  <link.icon size={20} />
+                  <span className="font-medium">{link.label}</span>
                 </Link>
               ))}
             </div>

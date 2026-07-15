@@ -18,6 +18,14 @@
     font-family: 'Vazirmatn', system-ui, -apple-system, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  /* Prevent horizontal scroll on mobile */
+  #root {
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100vw;
   }
 
   /* Custom scrollbar */
@@ -62,5 +70,12 @@
 
   .bg-gradient-primary {
     @apply bg-gradient-to-r from-primary to-accent;
+  }
+
+  /* Touch device: always show elements hidden by sm:group-hover */
+  @media (hover: none) and (pointer: coarse) {
+    .touch-show {
+      opacity: 1 !important;
+    }
   }
 }
